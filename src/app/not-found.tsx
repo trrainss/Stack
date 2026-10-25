@@ -16,7 +16,7 @@ export default function NotFound() {
         </h1>
         <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted">
           Возможно, адрес изменился или в ссылке опечатка. Вернитесь на главную или посмотрите
-          проекты и услуги студии.
+          услуги студии.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
@@ -26,10 +26,10 @@ export default function NotFound() {
             На главную
           </Link>
           <Link
-            href="/projects"
+            href="/services"
             className="inline-flex h-12 items-center border border-line px-6 text-sm text-fg transition-colors duration-300 hover:border-white/40"
           >
-            Смотреть проекты
+            Посмотреть услуги
           </Link>
           <Link
             href="/contacts"

@@ -11,7 +11,6 @@ import { LeadButton } from "@/components/lead/lead-dialog";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { href: "/projects", label: "Проекты" },
   { href: "/services", label: "Услуги" },
   { href: "/#process", label: "Процесс" },
   { href: "/about", label: "О студии" },

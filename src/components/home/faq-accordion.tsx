@@ -1,61 +1,63 @@
 "use client";
 
 import { useState } from "react";
-import { Minus, Plus } from "@phosphor-icons/react";
-
+import { ArrowDownRight, Minus, Plus } from "@phosphor-icons/react";
 import type { Faq } from "@prisma/client";
-import { cn } from "@/lib/utils";
 
 export function FaqAccordion({ items }: { items: Faq[] }) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   if (items.length === 0) {
     return (
-      <div className="border border-line bg-card p-8 text-sm text-muted">
-        Вопросы пока не добавлены.
+      <div className="faq-empty rounded-2xl border border-line p-7 sm:p-9">
+        <p className="mono-label">FAQ / 00</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted">Вопросы скоро появятся. Пока можно задать свой вопрос напрямую — ответим в Telegram.</p>
+        <a className="mt-5 inline-flex items-center gap-2 text-sm text-fg underline decoration-white/25 underline-offset-4 hover:decoration-white" href="https://t.me/StackLabb" target="_blank" rel="noreferrer">Написать в Telegram <ArrowDownRight size={15} aria-hidden="true" /></a>
       </div>
     );
   }
 
   return (
-    <div className="border-t border-line">
-      {items.map((item) => {
+    <div className="faq-list">
+      {items.map((item, index) => {
         const open = openId === item.id;
+        const panelId = `faq-panel-${item.id}`;
+        const buttonId = `faq-button-${item.id}`;
         return (
-          <div key={item.id} className="border-b border-line">
-            <h3>
+          <article
+            key={item.id}
+            className={`faq-item ${open ? "is-open" : ""}`}
+            onMouseEnter={() => setOpenId(item.id)}
+            onFocusCapture={() => setOpenId(item.id)}
+          >
+            <h3 className="m-0">
               <button
                 type="button"
                 onClick={() => setOpenId(open ? null : item.id)}
                 aria-expanded={open}
-                aria-controls={`faq-panel-${item.id}`}
-                id={`faq-button-${item.id}`}
-                className="group flex w-full items-center justify-between gap-6 py-5 text-left"
+                aria-controls={panelId}
+                id={buttonId}
+                className="faq-trigger group"
               >
-                <span className="text-base font-medium leading-snug tracking-tight transition-colors duration-300 group-hover:text-white sm:text-lg">
-                  {item.question}
-                </span>
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center border border-line text-fg transition-colors duration-300 group-hover:border-white/40">
-                  {open ? <Minus size={12} aria-hidden="true" /> : <Plus size={12} aria-hidden="true" />}
+                <span className="faq-index">{String(index + 1).padStart(2, "0")}</span>
+                <span className="faq-question">{item.question}</span>
+                <span className="faq-icon" aria-hidden="true">
+                  {open ? <Minus size={16} weight="bold" /> : <Plus size={16} weight="bold" />}
                 </span>
               </button>
             </h3>
             <div
-              id={`faq-panel-${item.id}`}
+              id={panelId}
               role="region"
-              aria-labelledby={`faq-button-${item.id}`}
-              className={cn(
-                "grid transition-[grid-template-rows] duration-500 ease-[var(--ease-out-expo)]",
-                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-              )}
+              aria-labelledby={buttonId}
+              aria-hidden={!open}
+              className={`faq-answer ${open ? "faq-answer-open" : "faq-answer-closed"}`}
             >
-              <div className="overflow-hidden">
-                <p className="max-w-2xl pb-6 pr-10 text-sm leading-relaxed text-muted">
-                  {item.answer}
-                </p>
+              <div className="faq-answer-inner">
+                <p>{item.answer}</p>
               </div>
             </div>
-          </div>
+          </article>
         );
       })}
     </div>

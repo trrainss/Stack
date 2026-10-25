@@ -6,7 +6,6 @@ import type { SiteContent } from "@/lib/settings";
 import { normalizeTelegram, normalizeTikTok } from "@/lib/utils";
 
 const FOOTER_NAV = [
-  { href: "/projects", label: "Проекты" },
   { href: "/services", label: "Услуги" },
   { href: "/about", label: "О студии" },
   { href: "/contacts", label: "Контакты" },

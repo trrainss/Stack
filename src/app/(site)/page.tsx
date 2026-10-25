@@ -4,14 +4,12 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 
 import { FaqAccordion } from "@/components/home/faq-accordion";
 import { LeadButton } from "@/components/lead/lead-dialog";
-import { ProjectCard } from "@/components/projects/project-card";
 import { ServicesSection } from "@/components/services/services-section";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import {
   getPublishedFaqs,
   getPublishedProcessSteps,
-  getPublishedProjects,
   getPublishedServices,
 } from "@/lib/data";
 import { isEnabled, getSiteContent, parsePairs } from "@/lib/settings";
@@ -35,8 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const content = await getSiteContent();
-  const [projects, services, faqs, steps] = await Promise.all([
-    getPublishedProjects(4),
+  const [services, faqs, steps] = await Promise.all([
     getPublishedServices(),
     getPublishedFaqs(),
     getPublishedProcessSteps(),
@@ -164,52 +161,6 @@ export default async function HomePage() {
       ) : null}
 
 
-      {/* PROJECTS */}
-      {isEnabled(content["home.sections.projects"]) ? (
-        <section id="projects" className="py-20 sm:py-24 lg:py-28">
-          <div className="container-page">
-            <div className="flex flex-wrap items-end justify-between gap-8">
-              <div>
-                <Reveal>
-                  <h2 className="max-w-2xl text-h2">{content["home.projects.title"]}</h2>
-                </Reveal>
-                <Reveal delay={0.05}>
-                  <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
-                    {content["home.projects.subtitle"]}
-                  </p>
-                </Reveal>
-              </div>
-              <Reveal delay={0.1}>
-                <ButtonLink
-                  href="/projects"
-                  variant="outline"
-                  size="sm"
-                  icon={<ArrowUpRight size={14} weight="light" aria-hidden="true" />}
-                >
-                  {content["home.projects.linkLabel"]}
-                </ButtonLink>
-              </Reveal>
-            </div>
-
-            {projects.length > 0 ? (
-              <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-2 lg:gap-7">
-                {projects.map((project, index) => (
-                  <Reveal key={project.id} delay={index * 0.05} as="div">
-                    <ProjectCard project={project} index={index} priority={index < 2} />
-                  </Reveal>
-                ))}
-              </div>
-            ) : (
-              <div className="mt-14 border border-line bg-card p-8">
-                <p className="text-sm text-muted">
-                  Проекты пока не опубликованы. Добавьте их в панели управления.
-                </p>
-              </div>
-            )}
-          </div>
-        </section>
-      ) : null}
-
       {/* ADVANTAGES */}
       {isEnabled(content["home.sections.advantages"]) ? (
         <section className="py-8 sm:py-10">
@@ -328,10 +279,11 @@ export default async function HomePage() {
 
       {/* FAQ */}
       {isEnabled(content["home.sections.faq"]) ? (
-        <section id="faq" className="border-t border-line py-20 sm:py-24 lg:py-28">
+        <section id="faq" className="faq-section border-t border-line py-20 sm:py-24 lg:py-28">
           <div className="container-page grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <Reveal>
+                <p className="mono-label mb-4 text-[#cbd5e1]">FAQ / Ответы без лишнего</p>
                 <h2 className="text-h2">{content["home.faq.title"]}</h2>
               </Reveal>
               <Reveal delay={0.05}>
