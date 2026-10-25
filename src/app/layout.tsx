@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Manrope, JetBrains_Mono } from "next/font/google";
 
 import { serverEnv } from "@/lib/env";
 import { getSiteContent } from "@/lib/settings";
@@ -7,12 +7,12 @@ import { getSiteContent } from "@/lib/settings";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin", "cyrillic-ext"],
   variable: "--font-plus-jakarta",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Manrope({
   subsets: ["latin", "cyrillic"],
   variable: "--font-space-grotesk",
   display: "swap",
