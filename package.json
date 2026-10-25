@@ -1,0 +1,48 @@
+{
+  "name": "stacklab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "STACKLAB - digital studio website with a private admin panel",
+  "scripts": {
+    "dev": "next dev",
+    "predev": "node scripts/prisma-target.mjs generate",
+    "build": "node scripts/prisma-target.mjs generate && next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "node scripts/prisma-target.mjs generate",
+    "db:migrate": "node scripts/prisma-target.mjs migrate-dev",
+    "db:deploy": "node scripts/prisma-target.mjs migrate-deploy",
+    "db:setup": "node scripts/prisma-target.mjs migrate-deploy && node scripts/prisma-target.mjs db-seed",
+    "db:supabase": "node scripts/db-supabase.mjs",
+    "db:seed": "node scripts/prisma-target.mjs db-seed",
+    "db:studio": "prisma studio",
+    "admin:create": "node scripts/create-admin.mjs",
+    "test": "node --import tsx --test tests/unit.test.ts",
+    "test:e2e": "node tests/e2e.mjs"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@prisma/client": "^6.16.2",
+    "motion": "^12.23.12",
+    "next": "^15.5.4",
+    "nodemailer": "^7.0.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^22.15.3",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "postcss": "^8.5.6",
+    "prisma": "^6.16.2",
+    "tailwindcss": "^4.1.13",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

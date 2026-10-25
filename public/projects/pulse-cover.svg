@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Концептуальная обложка проекта Pulse">
+  <defs>
+    <radialGradient id="core" cx="78%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#F5F5F5" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#F5F5F5" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots2" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1" fill="#333"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#0a0a0a"/>
+  <rect width="1200" height="900" fill="url(#core)"/>
+  <g fill="none" stroke="#f0f0f0" stroke-opacity="0.13">
+    <circle cx="900" cy="420" r="150"/>
+    <circle cx="900" cy="420" r="220"/>
+    <circle cx="900" cy="420" r="290"/>
+    <circle cx="900" cy="420" r="360"/>
+  </g>
+  <g stroke="#f0f0f0" stroke-opacity="0.55" fill="none" stroke-width="1.5">
+    <path d="M560 470H700L730 420L770 540L810 380L850 500L880 470H1000"/>
+    <path d="M560 500H690L720 470L760 520L800 440L840 490L870 470H1000" stroke-opacity="0.25"/>
+  </g>
+  <rect x="560" y="580" width="440" height="150" fill="url(#dots2)" opacity="0.5"/>
+  <path d="M0 640H520" stroke="#262626"/>
+  <text x="96" y="700" font-family="Helvetica, Arial, sans-serif" font-size="330" font-weight="700" letter-spacing="-16" fill="#1c1c1c">04</text>
+  <text x="100" y="132" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="6" fill="#8f8f8f">STACKLAB / CONCEPT</text>
+  <text x="100" y="188" font-family="Helvetica, Arial, sans-serif" font-size="44" letter-spacing="1" fill="#f0f0f0">PULSE</text>
+  <rect x="100" y="212" width="64" height="3" fill="#f0f0f0"/>
+  <text x="1100" y="836" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="16" letter-spacing="4" fill="#6f6f6f">REDESIGN / 2026</text>
+</svg>

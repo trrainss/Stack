@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Концептуальная обложка проекта Forma">
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F5F5" stop-opacity="0.08"/>
+      <stop offset="60%" stop-color="#F5F5F5" stop-opacity="0.01"/>
+      <stop offset="100%" stop-color="#F5F5F5" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="fine" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#171717" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#0d0d0d"/>
+  <rect width="1200" height="900" fill="url(#fine)"/>
+  <rect width="1200" height="900" fill="url(#light)"/>
+  <g transform="translate(560 250)">
+    <path d="M0 420L210 300L420 420L210 540Z" fill="#151515" stroke="#3a3a3a"/>
+    <path d="M0 330L210 210L420 330L210 450Z" fill="#1b1b1b" stroke="#4a4a4a"/>
+    <path d="M0 240L210 120L420 240L210 360Z" fill="#232323" stroke="#f0f0f0" stroke-opacity="0.55"/>
+    <path d="M0 240V420M420 240V420M210 360V540" stroke="#333" />
+  </g>
+  <circle cx="1010" cy="200" r="120" fill="none" stroke="#2b2b2b"/>
+  <circle cx="1010" cy="200" r="72" fill="none" stroke="#3d3d3d"/>
+  <text x="96" y="700" font-family="Helvetica, Arial, sans-serif" font-size="330" font-weight="700" letter-spacing="-16" fill="#1c1c1c">03</text>
+  <text x="100" y="132" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="6" fill="#8f8f8f">STACKLAB / CONCEPT</text>
+  <text x="100" y="188" font-family="Helvetica, Arial, sans-serif" font-size="44" letter-spacing="1" fill="#f0f0f0">FORMA</text>
+  <rect x="100" y="212" width="64" height="3" fill="#f0f0f0"/>
+  <text x="1100" y="836" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="16" letter-spacing="4" fill="#6f6f6f">ECOMMERCE / 2026</text>
+</svg>

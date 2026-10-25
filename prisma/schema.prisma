@@ -1,0 +1,175 @@
+// Prisma schema for STACKLAB.
+//
+// Local development and the verified test run use SQLite: it is a real
+// relational database with real migrations, not an in-memory mock.
+// For production switch `provider` to "postgresql" and point DATABASE_URL at
+// your Postgres instance (see README, section "Deployment").
+//
+// The models below intentionally avoid provider-specific column types
+// (Json / enums / arrays) so the same schema works on both engines.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  passwordHash String
+  role         String         @default("owner")
+  lastLoginAt  DateTime?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  sessions     AdminSession[]
+
+  @@index([email])
+}
+
+model AdminSession {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique
+  userId    String
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userAgent String?
+  ipHash    String?
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Lead {
+  id                     String            @id @default(cuid())
+  number                 Int               @unique
+  name                   String
+  contact                String
+  preferredContactMethod String            @default("telegram")
+  projectType            String
+  budget                 String?
+  message                String?
+  privacyConsent         Boolean           @default(false)
+  status                 String            @default("new")
+  internalNotes          String?
+  source                 String            @default("website")
+  ipHash                 String?
+  userAgent              String?
+  notifyStatus           String            @default("pending")
+  createdAt              DateTime          @default(now())
+  updatedAt              DateTime          @updatedAt
+  notifications          NotificationLog[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([projectType])
+  @@index([contact])
+}
+
+model NotificationLog {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  channel   String
+  status    String
+  detail    String?
+  createdAt DateTime @default(now())
+
+  @@index([leadId])
+  @@index([createdAt])
+}
+
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  category     String
+  description  String
+  challenge    String
+  solution     String
+  technologies String   @default("")
+  coverImage   String?
+  projectUrl   String?
+  year         String?
+  isConcept    Boolean  @default(true)
+  published    Boolean  @default(false)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([published, sortOrder])
+  @@index([category])
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  features    String   @default("")
+  audience    String?
+  outcome     String?
+  priceLabel  String?
+  published   Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published, sortOrder])
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  author    String
+  company   String?
+  content   String
+  published Boolean  @default(false)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([published, sortOrder])
+}
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  published Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([published, sortOrder])
+}
+
+model ProcessStep {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  published   Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published, sortOrder])
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model RateLimit {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  count       Int      @default(0)
+  windowStart DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

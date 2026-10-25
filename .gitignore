@@ -1,0 +1,25 @@
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets and local configuration. Keep the *.example templates tracked.
+.env
+.env.*
+!.env.example
+!.env.supabase.example
+prisma/dev.db
+prisma/dev.db-journal
+prisma/*.db
+prisma/*.db-journal
+.DS_Store
+Thumbs.db
+npm-debug.log*
+.vercel
+
+# Uploaded covers (local storage). Keep the folder, ignore the files.
+public/uploads/projects/*
+!public/uploads/projects/.gitkeep
+
