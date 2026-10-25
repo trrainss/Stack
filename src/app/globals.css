@@ -11,7 +11,8 @@
   --color-silver: #c9c9c9;
   --color-dim: #6f6f6f;
 
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-space-grotesk), var(--font-plus-jakarta), sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
 
   --text-display: clamp(2.6rem, 6.4vw, 6rem);
@@ -71,6 +72,8 @@
   h2,
   h3,
   h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
 
@@ -226,23 +229,126 @@ dialog::backdrop {
   }
 }
 
-
-/* STACKLAB visual language: quiet grid, restrained contrast and clear surfaces. */
-.bg-tech-grid {
-  background-image: linear-gradient(to right, rgba(255,255,255,.028) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.028) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* STACKLAB reference look: restrained silver accents, rounded surfaces and a centered hero. */
+.hero-glow {
+  background: radial-gradient(ellipse at center, rgba(203, 213, 225, 0.105) 0%, rgba(203, 213, 225, 0.035) 36%, transparent 72%);
+  filter: blur(28px);
 }
 
-:where(a, button, input, select, textarea) {
-  -webkit-tap-highlight-color: transparent;
+.hero-title {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
-:where(button, a) {
-  touch-action: manipulation;
+.hero-eyebrow {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025), 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+.hero-showcase {
+  background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.008) 48%, rgba(203,213,225,.025));
+  box-shadow: 0 28px 100px rgba(0, 0, 0, .28);
+}
+
+.showcase-art {
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(203,213,225,.08), transparent 64%);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.showcase-orbit {
+  animation: showcase-orbit 22s linear infinite;
+}
+
+.showcase-orbit:nth-child(2) {
+  animation-direction: reverse;
+  animation-duration: 15s;
+}
+
+.showcase-core {
+  animation: showcase-float 5s ease-in-out infinite;
+}
+
+@keyframes showcase-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes showcase-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.social-chip {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.testimonial-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.025), transparent 60%), var(--color-card);
+  transition: border-color .3s ease, transform .3s ease, background-color .3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,.22);
+}
+
+.lead-panel {
+  background: radial-gradient(ellipse at 100% 0%, rgba(203,213,225,.055), transparent 44%), var(--color-surface);
+  box-shadow: 0 24px 80px rgba(0,0,0,.2);
+}
+
+.contacts-aside {
+  background: linear-gradient(145deg, rgba(255,255,255,.025), transparent 60%), var(--color-card);
+}
+
+.lead-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a1a1a1' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.8rem;
+}
+
+.lead-form input[type="checkbox"] {
+  border-radius: 4px;
 }
 
 @media (max-width: 640px) {
-  html { scroll-padding-top: 76px; }
-  body::after { opacity: .018; }
+  .hero-showcase { margin-inline: -0.15rem; }
+  .hero-eyebrow { max-width: 100%; text-align: center; line-height: 1.6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-orbit, .showcase-core { animation: none !important; }
+  .testimonial-card { transition: none !important; }
+}
+
+.service-card {
+  background: linear-gradient(150deg, rgba(255,255,255,.025), transparent 54%), var(--color-card);
+  transition: border-color .3s ease, transform .3s ease, background-color .3s ease;
+}
+.service-card:hover {
+  border-color: rgba(255,255,255,.24);
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card { transition: none !important; }
+}
+
+.advantages-panel {
+  background: radial-gradient(ellipse at 100% 0%, rgba(203,213,225,.045), transparent 45%), var(--color-surface);
+}
+
+.process-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.022), transparent 58%), var(--color-card);
+  transition: border-color .3s ease, transform .3s ease;
+}
+.process-card:hover {
+  border-color: rgba(255,255,255,.23);
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-card { transition: none !important; }
 }

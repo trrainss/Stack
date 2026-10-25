@@ -50,11 +50,11 @@ export function projectCategoryLabel(value: string): string {
 }
 
 export const BUDGET_OPTIONS = [
-  "До 100 000 ₽",
-  "100 000 - 250 000 ₽",
-  "250 000 - 500 000 ₽",
-  "Более 500 000 ₽",
+  "Небольшой бюджет",
+  "Средний бюджет",
+  "Гибкий бюджет",
   "Пока не определён",
+  "Хочу обсудить варианты",
 ] as const;
 
 export const LEADS_PAGE_SIZE = 10;

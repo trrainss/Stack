@@ -43,10 +43,11 @@ export default async function ContactsPage() {
         meta="Ответ в течение рабочего дня"
       />
 
-      <section className="py-16 lg:py-24">
-        <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <section className="contacts-section py-12 sm:py-16 lg:py-24">
+        <div className="container-page grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <div id="lead-form" className="border border-line bg-surface p-6 sm:p-8 lg:p-10">
+            <div id="lead-form" className="lead-panel relative overflow-hidden rounded-3xl border border-line bg-surface p-5 sm:p-8 lg:p-10">
+              <p className="mono-label mb-3 text-[#cbd5e1]">01 / Новая задача</p>
               <h2 className="text-h3">{content["contacts.formTitle"]}</h2>
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">
                 {content["contacts.formNote"]}
@@ -58,8 +59,9 @@ export default async function ContactsPage() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="border-t border-line pt-6">
-              <h2 className="mono-label">{content["contacts.directTitle"]}</h2>
+            <div className="contacts-aside rounded-3xl border border-line bg-card p-6 sm:p-8">
+              <p className="mono-label mb-3 text-[#cbd5e1]">02 / На связи</p>
+              <h2 className="text-2xl font-medium tracking-tight">{content["contacts.directTitle"]}</h2>
 
               {hasDirectContacts ? (
                 <ul className="mt-6 grid gap-4 text-sm">
@@ -146,14 +148,14 @@ export default async function ContactsPage() {
                 </p>
               )}
 
-              <div className="mt-8 flex items-start gap-3 border border-line bg-card p-5">
+              <div className="mt-8 flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
                 <Clock size={18} weight="light" aria-hidden="true" className="mt-0.5 text-muted" />
                 <p className="text-sm leading-relaxed text-muted">
                   {content["contacts.responseTime"]}
                 </p>
               </div>
 
-              <div className="mt-8 border border-line p-5">
+              <div className="mt-8 rounded-2xl border border-line bg-surface p-5">
                 <p className="mono-label">Что помогает ускорить ответ</p>
                 <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-muted">
                   <li>Короткое описание задачи и целевой аудитории.</li>

@@ -15,29 +15,21 @@ export function ServicesSection({
   ctaLabel: string;
 }) {
   return (
-    <section id="services" className="border-t border-line py-20 lg:py-28">
-      <div className="container-page grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <h2 className="text-h2">{title}</h2>
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">{subtitle}</p>
-          <div className="mt-7 border border-line bg-card p-5">
-            <p className="mono-label">Нужна нестандартная функция?</p>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              Дополнительные страницы, интеграции и другие услуги можно добавить по договорённости.
-              Сначала согласуем задачу, сроки и стоимость — никаких обещаний функциональности без оценки.
-            </p>
+    <section id="services" className="border-t border-line py-20 sm:py-24 lg:py-28">
+      <div className="container-page">
+        <div className="mb-10 flex flex-col gap-5 border-b border-line pb-7 md:flex-row md:items-end md:justify-between lg:mb-12">
+          <div>
+            <p className="mono-label mb-3 text-[#cbd5e1]">Услуги студии</p>
+            <h2 className="text-h2">{title}</h2>
           </div>
-          <a
-            href="#final-cta"
-            className="mt-8 inline-flex items-center gap-2 border-b border-line pb-1 text-sm text-fg transition-colors duration-300 hover:border-fg"
-          >
-            <span>Обсудить задачу</span>
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
+          <div className="max-w-md">
+            <p className="text-sm leading-relaxed text-muted">{subtitle}</p>
+            <a href="#final-cta" className="mt-4 inline-flex items-center gap-2 text-sm text-fg transition-colors hover:text-white/70">
+              Обсудить задачу <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </div>
         </div>
-        <div className="lg:col-span-8">
-          <ServicesList services={services} ctaLabel={ctaLabel} />
-        </div>
+        <ServicesList services={services} ctaLabel={ctaLabel} />
       </div>
     </section>
   );

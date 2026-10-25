@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMotionValueEvent, useScroll } from "motion/react";
-import { ArrowUpRight, List, X } from "@phosphor-icons/react";
+import { ArrowUpRight, List, X, TelegramLogo, TiktokLogo } from "@phosphor-icons/react";
 
 import { Logo } from "@/components/brand/logo";
 import { LeadButton } from "@/components/lead/lead-dialog";
@@ -112,8 +112,14 @@ export function Header({ ctaLabel }: { ctaLabel: string }) {
             })}
           </nav>
 
-          <div className="flex items-center gap-2.5">
-            <LeadButton className="hidden h-11 items-center gap-2 bg-fg px-5 text-[0.8rem] font-medium text-base transition-[background-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:bg-white active:scale-[0.98] sm:inline-flex">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <a href="https://t.me/StackLabb" target="_blank" rel="noopener noreferrer" aria-label="STACKLAB в Telegram" className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-white/35 hover:text-fg md:inline-flex">
+              <TelegramLogo size={17} aria-hidden="true" />
+            </a>
+            <a href="https://www.tiktok.com/@nikitrkkls4" target="_blank" rel="noopener noreferrer" aria-label="STACKLAB в TikTok" className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-white/35 hover:text-fg md:inline-flex">
+              <TiktokLogo size={17} aria-hidden="true" />
+            </a>
+            <LeadButton className="hidden h-11 items-center gap-2 rounded-full bg-fg px-5 text-[0.8rem] font-medium text-base transition-[background-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:bg-white active:scale-[0.98] sm:inline-flex">
               <span>{ctaLabel}</span>
               <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
             </LeadButton>
@@ -125,7 +131,7 @@ export function Header({ ctaLabel }: { ctaLabel: string }) {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
-              className="relative flex h-11 w-11 items-center justify-center border border-line text-fg transition-colors duration-300 hover:border-white/35 lg:hidden"
+              className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-line text-fg transition-colors duration-300 hover:border-white/35 lg:hidden"
             >
               {menuOpen ? <X size={20} aria-hidden="true" /> : <List size={20} aria-hidden="true" />}
             </button>

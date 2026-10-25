@@ -25,7 +25,7 @@ export function ServiceForm({ service }: { service?: Service }) {
             label="Цена или способ расчёта"
             name="priceLabel"
             defaultValue={service?.priceLabel}
-            placeholder="от 90 000 ₽"
+            placeholder="Стоимость по договорённости"
             hint="Если пусто, на сайте будет показано «Стоимость после обсуждения»."
           />
           <Field

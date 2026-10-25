@@ -123,8 +123,8 @@ export function HeroVisual() {
                     Отчёт / июль
                   </p>
                   <div className="mt-2 flex items-baseline justify-between">
-                    <span className="text-lg font-medium text-fg">4 218 900 ₽</span>
-                    <span className="font-mono text-[9px] text-[#9a9a9a]">+12.4%</span>
+                    <span className="text-sm font-medium text-fg">Демо-данные</span>
+                    <span className="font-mono text-[9px] text-[#9a9a9a]">Пример UI</span>
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export function HeroVisual() {
             <div className="mt-2 flex items-end gap-2">
               <span className="text-3xl font-medium leading-none tracking-tight text-fg">Aa</span>
               <span className="pb-1 font-mono text-[8px] leading-tight text-[#8a8a8a]">
-                Manrope
+                Space Grotesk
                 <br />
                 500 / 96
               </span>

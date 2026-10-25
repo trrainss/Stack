@@ -26,7 +26,7 @@ const initialValues = {
 };
 
 const inputClasses =
-  "h-12 w-full border border-line bg-[#0c0c0c] px-3.5 text-sm text-fg outline-none transition-colors duration-300 placeholder:text-[#6f6f6f] focus:border-white/55 focus-visible:outline-none";
+  "h-12 w-full rounded-xl border border-line bg-[#0b0b0b] px-4 text-sm text-fg outline-none transition-all duration-300 placeholder:text-[#6f6f6f] hover:border-white/20 focus:border-[#cbd5e1] focus:bg-[#101010] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10";
 
 export function LeadForm({
   defaultProjectType,
@@ -137,7 +137,7 @@ export function LeadForm({
 
   if (state.status === "success") {
     return (
-      <div className="border border-line bg-card p-6 sm:p-8" role="status" aria-live="polite">
+      <div className="rounded-2xl border border-line bg-card p-6 sm:p-8" role="status" aria-live="polite">
         <span className="flex h-12 w-12 items-center justify-center border border-white/20 text-fg">
           <Check size={22} weight="light" aria-hidden="true" />
         </span>
@@ -155,7 +155,7 @@ export function LeadForm({
             setState({ status: "idle" });
             openedAt.current = Date.now();
           }}
-          className="mt-6 inline-flex h-11 items-center border border-line px-5 text-sm text-fg transition-colors duration-300 hover:border-white/40"
+          className="mt-6 inline-flex h-11 items-center rounded-full border border-line px-5 text-sm text-fg transition-all duration-300 hover:border-white/40 hover:bg-white/[0.04]"
         >
           Отправить ещё одну заявку
         </button>
@@ -164,7 +164,7 @@ export function LeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className={cn("grid gap-5", compact && "gap-4")}>
+    <form onSubmit={handleSubmit} noValidate className={cn("lead-form grid gap-6", compact && "gap-4")}>
       <div className="grid gap-2">
         <label htmlFor={`${uid}-name`} className="mono-label text-[#b9b9b9]">
           Имя <span aria-hidden="true">*</span>
@@ -220,9 +220,9 @@ export function LeadForm({
             <label
               key={method.value}
               className={cn(
-                "flex h-11 cursor-pointer items-center justify-center border border-line bg-[#0c0c0c] text-[0.78rem] text-muted transition-colors duration-300 hover:border-white/30",
+                "flex h-12 cursor-pointer items-center justify-center rounded-xl border border-line bg-[#0b0b0b] text-[0.78rem] text-muted transition-all duration-300 hover:border-white/35 hover:text-fg",
                 values.preferredContactMethod === method.value &&
-                  "border-fg bg-fg text-base hover:border-fg",
+                  "border-fg bg-fg font-medium text-base shadow-[0_4px_18px_rgba(255,255,255,.08)] hover:border-fg",
               )}
             >
               <input
@@ -293,7 +293,7 @@ export function LeadForm({
           onChange={(event) => update("message", event.target.value)}
           rows={compact ? 3 : 5}
           maxLength={2000}
-          className={cn(inputClasses, "h-auto min-h-[104px] resize-y py-3 leading-relaxed")}
+          className={cn(inputClasses, "h-auto min-h-[132px] resize-y py-3.5 leading-relaxed")}
           placeholder="Что нужно сделать, для кого сайт и какой результат важен"
         />
       </div>
@@ -314,7 +314,7 @@ export function LeadForm({
       </div>
 
       <div className="grid gap-2">
-        <label className="flex cursor-pointer items-start gap-3 text-[0.8rem] leading-relaxed text-muted">
+        <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-line/70 bg-[#0b0b0b]/70 p-4 text-[0.8rem] leading-relaxed text-muted">
           <input
             type="checkbox"
             name="privacyConsent"
@@ -355,7 +355,7 @@ export function LeadForm({
         <button
           type="submit"
           disabled={state.status === "submitting"}
-          className="group inline-flex h-12 items-center justify-center gap-3 bg-fg px-6 text-sm font-medium text-base transition-[background-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:bg-white active:scale-[0.99] disabled:cursor-wait disabled:opacity-70"
+          className="group inline-flex min-h-13 items-center justify-center gap-3 rounded-full bg-fg px-7 py-3 text-sm font-semibold text-base shadow-[0_8px_28px_rgba(255,255,255,.07)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white active:scale-[0.99] disabled:cursor-wait disabled:opacity-70"
         >
           <span>{state.status === "submitting" ? "Отправляем" : "Отправить заявку"}</span>
           {state.status === "submitting" ? (

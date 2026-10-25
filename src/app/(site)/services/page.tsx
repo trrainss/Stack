@@ -41,12 +41,12 @@ export default async function ServicesPage() {
               Услуги пока не добавлены. Настройте список в панели управления.
             </div>
           ) : (
-            <div className="border-t border-line">
+            <div className="grid gap-4">
               {services.map((service, index) => {
                 const features = parseLines(service.features);
                 return (
                   <Reveal key={service.id} delay={index * 0.03}>
-                    <article className="grid gap-8 border-b border-line py-10 lg:grid-cols-12 lg:gap-12 lg:py-14">
+                    <article className="grid gap-8 rounded-2xl border border-line bg-card px-6 py-8 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:py-10">
                       <div className="lg:col-span-4">
                         <div className="flex items-baseline gap-4">
                           <span className="font-mono text-[10px] tracking-[0.14em] text-dim">
@@ -55,7 +55,7 @@ export default async function ServicesPage() {
                           <h2 className="text-h3">{service.title}</h2>
                         </div>
                         <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
-                          Стоимость по договорённости
+                          {"Стоимость по договорённости"}
                         </p>
                       </div>
 
@@ -123,7 +123,7 @@ export default async function ServicesPage() {
             </div>
           )}
 
-          <p className="mt-8 max-w-2xl text-xs leading-relaxed text-dim">
+          <p className="mt-8 max-w-2xl rounded-xl border border-line bg-surface p-5 text-sm leading-relaxed text-muted">
             {content["services.note"]}
           </p>
         </div>

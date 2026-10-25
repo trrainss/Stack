@@ -68,8 +68,8 @@ export function LeadDialogProvider({ children }: { children: ReactNode }) {
         aria-labelledby="lead-dialog-title"
         className="fixed inset-0 z-[80] m-auto h-fit max-h-[92dvh] w-[min(100%-1.5rem,720px)] overflow-y-auto bg-transparent p-0"
       >
-        <div className="relative border border-line bg-surface">
-          <div className="flex items-start justify-between gap-6 border-b border-line px-6 py-5 sm:px-8">
+        <div className="relative overflow-hidden rounded-3xl border border-line bg-surface shadow-[0_30px_100px_rgba(0,0,0,.6)]">
+          <div className="flex items-start justify-between gap-6 border-b border-line bg-white/[0.015] px-6 py-5 sm:px-8">
             <div>
               <p className="mono-label">STACKLAB</p>
               <h2 id="lead-dialog-title" className="mt-2 text-2xl font-medium tracking-tight">
@@ -83,7 +83,7 @@ export function LeadDialogProvider({ children }: { children: ReactNode }) {
               type="button"
               onClick={close}
               aria-label="Закрыть форму"
-              className="flex h-10 w-10 shrink-0 items-center justify-center border border-line text-muted transition-colors duration-300 hover:border-fg/40 hover:text-fg"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors duration-300 hover:border-fg/40 hover:bg-white/[0.04] hover:text-fg"
             >
               <X size={18} aria-hidden="true" />
             </button>

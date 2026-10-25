@@ -80,7 +80,7 @@ export default async function AdminServicesPage({
                     </span>
                   </td>
                   <td className="px-3 py-3 text-[#9a9a9a]">
-                    {service.priceLabel ?? "Стоимость после обсуждения"}
+                    {"Стоимость по договорённости"}
                   </td>
                   <td className="px-3 py-3">
                     <PublishedBadge published={service.published} />

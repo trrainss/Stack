@@ -1,15 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import { serverEnv } from "@/lib/env";
 import { getSiteContent } from "@/lib/settings";
 
 import "./globals.css";
 
-const manrope = Manrope({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-manrope",
+  variable: "--font-plus-jakarta",
   display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrains = JetBrains_Mono({
@@ -67,7 +74,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={`${manrope.variable} ${jetbrains.variable}`}>
+    <html lang="ru" className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}>
       <body className="min-h-[100dvh] bg-base text-fg antialiased">{children}</body>
     </html>
   );
