@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Обложка проекта Apex Detailing">
+  <defs>
+    <radialGradient id="ap_glow" cx="65%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.14"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ap_grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#161b22" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#070a0e"/>
+  <rect width="1200" height="900" fill="url(#ap_grid)"/>
+  <rect width="1200" height="900" fill="url(#ap_glow)"/>
+
+  <!-- Graphical speed and precision lines -->
+  <path d="M400 650 L850 250" stroke="#1e293b" stroke-width="2"/>
+  <path d="M480 720 L930 320" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.3"/>
+  <path d="M320 580 L770 180" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="8 8"/>
+
+  <!-- Car silhouette / detailing shield icon -->
+  <g transform="translate(760 420)">
+    <circle cx="0" cy="0" r="160" fill="#0d141f" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#1e293b" stroke-width="1" stroke-dasharray="4 6"/>
+    <!-- Detailing Shield -->
+    <path d="M-40 -40 L40 -40 L50 10 L0 50 L-50 10 Z" fill="#0284c7" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2.5"/>
+    <text x="0" y="8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="#f8fafc">APEX</text>
+  </g>
+
+  <!-- Number 02 -->
+  <text x="90" y="740" font-family="system-ui, sans-serif" font-size="280" font-weight="800" letter-spacing="-12" fill="#0f172a">02</text>
+
+  <!-- Title & Category -->
+  <text x="90" y="120" font-family="monospace" font-size="14" letter-spacing="4" fill="#38bdf8">● ЛЕНДИНГ / АВТОБИЗНЕС</text>
+  <text x="90" y="170" font-family="system-ui, sans-serif" font-size="38" font-weight="700" letter-spacing="-1" fill="#f8fafc">APEX DETAILING</text>
+  <rect x="90" y="195" width="80" height="3" fill="#38bdf8"/>
+
+  <text x="90" y="240" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">Премиальный детейлинг авто: оклейка, полировка, керамика</text>
+
+  <!-- URL Tag -->
+  <rect x="90" y="275" width="280" height="36" rx="6" fill="#0f172a" stroke="#1e293b"/>
+  <text x="110" y="298" font-family="monospace" font-size="12" fill="#38bdf8">apex-detailing-alpha.vercel.app</text>
+
+  <text x="1110" y="810" text-anchor="end" font-family="monospace" font-size="14" letter-spacing="3" fill="#64748b">LIVE PROJECT / 2026</text>
+</svg>

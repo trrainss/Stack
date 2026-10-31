@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Обложка проекта Burim Store">
+  <defs>
+    <radialGradient id="bm_glow" cx="70%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.14"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="bm_grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#1c1917" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#0c0a09"/>
+  <rect width="1200" height="900" fill="url(#bm_grid)"/>
+  <rect width="1200" height="900" fill="url(#bm_glow)"/>
+
+  <!-- Store geometric visuals -->
+  <circle cx="780" cy="420" r="190" fill="none" stroke="#292524" stroke-width="1"/>
+  <rect x="660" y="300" width="240" height="240" rx="20" fill="#1c1917" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="2"/>
+
+  <!-- Bag / cart icon stylized -->
+  <g transform="translate(780 420)">
+    <path d="M-30 -20 C-30 -45 30 -45 30 -20" fill="none" stroke="#f59e0b" stroke-width="4"/>
+    <rect x="-45" y="-20" width="90" height="70" rx="8" fill="#292524" stroke="#f59e0b" stroke-width="2"/>
+    <text x="0" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#f5f5f5">STORE</text>
+  </g>
+
+  <!-- Number 03 -->
+  <text x="90" y="740" font-family="system-ui, sans-serif" font-size="280" font-weight="800" letter-spacing="-12" fill="#1c1917">03</text>
+
+  <!-- Title & Category -->
+  <text x="90" y="120" font-family="monospace" font-size="14" letter-spacing="4" fill="#f59e0b">● ИНТЕРНЕТ-МАГАЗИН / E-COMMERCE</text>
+  <text x="90" y="170" font-family="system-ui, sans-serif" font-size="38" font-weight="700" letter-spacing="-1" fill="#fafaf9">BURIM STORE</text>
+  <rect x="90" y="195" width="80" height="3" fill="#f59e0b"/>
+
+  <text x="90" y="240" font-family="system-ui, sans-serif" font-size="18" fill="#a8a29e">Онлайн-магазин одежды: каталог, фильтры, корзина и чекаут</text>
+
+  <!-- URL Tag -->
+  <rect x="90" y="275" width="250" height="36" rx="6" fill="#1c1917" stroke="#292524"/>
+  <text x="110" y="298" font-family="monospace" font-size="12" fill="#f59e0b">burim-store.vercel.app</text>
+
+  <text x="1110" y="810" text-anchor="end" font-family="monospace" font-size="14" letter-spacing="3" fill="#78716c">LIVE PROJECT / 2026</text>
+</svg>

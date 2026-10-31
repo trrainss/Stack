@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, Lightning, Clock } from "@phosphor-icons/react/dist/ssr";
 
 import { PageIntro } from "@/components/layout/page-intro";
 import { LeadButton } from "@/components/lead/lead-dialog";
@@ -31,17 +31,38 @@ export default async function ServicesPage() {
       <PageIntro
         title="Услуги"
         subtitle={content["services.intro"]}
-        meta={`${services.length} форматов работы`}
+        meta={`${services.length} форматов · Запуск до 5 дней`}
       />
 
       <section className="py-16 lg:py-24">
         <div className="container-page">
+          {/* Note callout banner */}
+          <div className="mb-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-emerald-500/25 bg-emerald-950/20 p-5">
+            <div className="flex items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+                <Lightning size={18} weight="fill" />
+              </span>
+              <div>
+                <p className="text-sm font-medium text-emerald-200">
+                  Все форматы сайтов запускаем в срок до 5 дней
+                </p>
+                <p className="text-xs text-emerald-300/80">
+                  Без затягивания, лишней бюрократии и с прозрачным ежедневным процессом.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 font-mono text-xs text-sky-400">
+              <Clock size={16} />
+              <span>Ответ за 2 часа в любое время</span>
+            </div>
+          </div>
+
           {services.length === 0 ? (
             <div className="border border-line bg-card p-8 text-sm text-muted">
-              Услуги пока не добавлены. Настройте список в панели управления.
+              Услуги загружаются...
             </div>
           ) : (
-            <div className="grid gap-4">
+            <div className="grid gap-6">
               {services.map((service, index) => {
                 const features = parseLines(service.features);
                 return (
@@ -49,14 +70,17 @@ export default async function ServicesPage() {
                     <article className="grid gap-8 rounded-2xl border border-line bg-card px-6 py-8 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:py-10">
                       <div className="lg:col-span-4">
                         <div className="flex items-baseline gap-4">
-                          <span className="font-mono text-[10px] tracking-[0.14em] text-dim">
+                          <span className="font-mono text-sm tracking-[0.14em] text-emerald-400">
                             {String(index + 1).padStart(2, "0")}
                           </span>
                           <h2 className="text-h3">{service.title}</h2>
                         </div>
-                        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
-                          {"Стоимость по договорённости"}
-                        </p>
+                        <div className="mt-4">
+                          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-surface px-3 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-emerald-300">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                            {service.priceLabel || "Срок: до 5 дней"}
+                          </span>
+                        </div>
                       </div>
 
                       <div className="lg:col-span-8">
@@ -66,7 +90,7 @@ export default async function ServicesPage() {
 
                         <div className="mt-8 grid gap-8 sm:grid-cols-2">
                           <div>
-                            <p className="mono-label">Что входит</p>
+                            <p className="mono-label text-emerald-400">Что входит в работу</p>
                             <ul className="mt-3 grid gap-2">
                               {features.map((feature) => (
                                 <li
@@ -75,7 +99,7 @@ export default async function ServicesPage() {
                                 >
                                   <span
                                     aria-hidden="true"
-                                    className="mt-2 h-px w-3 shrink-0 bg-dim"
+                                    className="mt-2 h-px w-3 shrink-0 bg-emerald-500/60"
                                   />
                                   <span>{feature}</span>
                                 </li>
@@ -105,14 +129,14 @@ export default async function ServicesPage() {
 
                         <LeadButton
                           projectType={service.slug}
-                          className="group mt-8 inline-flex h-11 items-center gap-2.5 border border-line px-5 text-[0.8rem] text-fg transition-colors duration-300 hover:border-white/40"
+                          className="group mt-8 inline-flex h-11 items-center gap-2.5 rounded-full border border-line bg-surface px-6 text-xs font-semibold text-fg transition-all duration-300 hover:border-white/50 hover:bg-white hover:text-black"
                         >
-                          <span>Заказать услугу</span>
+                          <span>Заказать сайт</span>
                           <ArrowUpRight
                             size={14}
-                            weight="light"
+                            weight="bold"
                             aria-hidden="true"
-                            className="transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                            className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                           />
                         </LeadButton>
                       </div>
@@ -135,13 +159,14 @@ export default async function ServicesPage() {
             <div className="lg:col-span-8">
               <h2 className="max-w-[22ch] text-h2">Не нашли подходящий формат?</h2>
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted">
-                Опишите задачу своими словами. Предложим состав работ и честно скажем, если
-                задача решается проще или иначе.
+                Опишите вашу задачу своими словами. Мы ответим в течение 2 часов, рассчитаем план
+                работ и запустим сайт за срок до 5 дней.
               </p>
             </div>
             <div className="lg:col-span-4">
-              <LeadButton className="group inline-flex h-12 items-center gap-3 bg-fg px-6 text-sm font-medium text-base transition-[background-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:bg-white active:scale-[0.98]">
-                Обсудить задачу
+              <LeadButton className="group inline-flex h-12 items-center gap-3 rounded-full bg-fg px-6 text-sm font-semibold text-base transition-[background-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:bg-white active:scale-[0.98]">
+                <span>Обсудить задачу</span>
+                <ArrowUpRight size={16} weight="bold" />
               </LeadButton>
             </div>
           </div>

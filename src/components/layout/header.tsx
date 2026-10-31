@@ -11,9 +11,10 @@ import { LeadButton } from "@/components/lead/lead-dialog";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
+  { href: "/projects", label: "Проекты" },
   { href: "/services", label: "Услуги" },
   { href: "/#process", label: "Процесс" },
-  { href: "/about", label: "О студии" },
+  { href: "/about", label: "О нас" },
   { href: "/contacts", label: "Контакты" },
 ];
 
@@ -112,10 +113,27 @@ export function Header({ ctaLabel }: { ctaLabel: string }) {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-2.5">
-            <a href="https://t.me/StackLabb" target="_blank" rel="noopener noreferrer" aria-label="STACKLAB в Telegram" className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-white/35 hover:text-fg md:inline-flex">
+            <span className="hidden items-center gap-1.5 rounded-full border border-emerald-500/30 bg-surface px-3 py-1 font-mono text-[11px] text-emerald-300 xl:inline-flex">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Срок: до 5 дней
+            </span>
+
+            <a
+              href="https://t.me/StackLabb"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="STACKLAB в Telegram"
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-white/35 hover:text-fg md:inline-flex"
+            >
               <TelegramLogo size={17} aria-hidden="true" />
             </a>
-            <a href="https://www.tiktok.com/@nikitrkkls4" target="_blank" rel="noopener noreferrer" aria-label="STACKLAB в TikTok" className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-white/35 hover:text-fg md:inline-flex">
+            <a
+              href="https://www.tiktok.com/@nikitrkkls4"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="STACKLAB в TikTok"
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-white/35 hover:text-fg md:inline-flex"
+            >
               <TiktokLogo size={17} aria-hidden="true" />
             </a>
             <LeadButton className="hidden h-11 items-center gap-2 rounded-full bg-fg px-5 text-[0.8rem] font-medium text-base transition-[background-color,transform] duration-500 ease-[var(--ease-out-expo)] hover:bg-white active:scale-[0.98] sm:inline-flex">
@@ -187,12 +205,12 @@ export function Header({ ctaLabel }: { ctaLabel: string }) {
           </ul>
 
           <div className="mt-10">
-            <LeadButton className="flex h-13 w-full items-center justify-center gap-3 bg-fg py-4 text-sm font-medium text-base">
+            <LeadButton className="flex h-13 w-full items-center justify-center gap-3 rounded-full bg-fg py-4 text-sm font-medium text-base">
               <span>{ctaLabel}</span>
               <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
             </LeadButton>
-            <p className="mt-5 text-xs leading-relaxed text-dim">
-              Расскажите о задаче - ответим по указанному контакту и предложим следующий шаг.
+            <p className="mt-5 text-center text-xs leading-relaxed text-dim">
+              Срок разработки: до 5 дней · Ответ за 2 часа
             </p>
           </div>
         </nav>

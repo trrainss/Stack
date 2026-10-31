@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "STACKLAB - digital studio";
+export const alt = "STACKLAB — разработка сайтов для бизнеса";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,17 +54,17 @@ export default async function OpenGraphImage() {
           <div
             style={{
               color: "#f5f5f5",
-              fontSize: "104px",
+              fontSize: "96px",
               lineHeight: 0.95,
-              letterSpacing: "-5px",
-              fontWeight: 500,
-              maxWidth: "900px",
+              letterSpacing: "-4px",
+              fontWeight: 600,
+              maxWidth: "1000px",
             }}
           >
-            Digital studio
+            Сайты для бизнеса за 5 дней
           </div>
-          <div style={{ color: "#a1a1a1", fontSize: "30px", letterSpacing: "-0.5px" }}>
-            Web development, interface design, support
+          <div style={{ color: "#34d399", fontSize: "28px", letterSpacing: "1px" }}>
+            Запуск до 5 дней · Ответ за 2 часа · Чистый код
           </div>
         </div>
 
@@ -80,8 +80,8 @@ export default async function OpenGraphImage() {
             letterSpacing: "2px",
           }}
         >
-          <span>STACKLAB.STUDIO</span>
-          <span>WEB / UI / SUPPORT</span>
+          <span>STACKLAB</span>
+          <span>stacklab7@gmail.com</span>
         </div>
       </div>
     ),
